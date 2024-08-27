@@ -1,0 +1,3 @@
+MAIN_INTERVAL = 2
+
+CRAFT_GAME_ACTION = 'sell'

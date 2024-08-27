@@ -1,4 +1,6 @@
-BTN_START_GAME = 'img/craft_game/btn_start_craft_game.png'
+BTN_START_GAME = 'img/main_screen/btn_start_craft_game.png'
+BTN_CLAIM = 'img/main_screen/btn_claim.png'
+
 BTN_CRATE = 'img/craft_game/btn_box.png'
 MSG_BATCH_DEFECTIVE = 'img/craft_game/msg_batch_defective.png'
 BTN_TO_WAREHOUSE = 'img/craft_game/btn_to_warehouse.png'
