@@ -6,9 +6,6 @@ from images import BTN_CLOSE, BTN_CRATE, BTN_SELL, BTN_TO_WAREHOUSE, BTN_WAREHOU
 
 
 def craft_game():
-    pyautogui.scroll(-40)
-    time.sleep(1)
-
     game_end_reason = None
 
     while game_end_reason is None:
@@ -22,6 +19,9 @@ def craft_game():
         except pyautogui.ImageNotFoundException:
             time.sleep(1)
             continue
+
+        pyautogui.scroll(-40)
+        time.sleep(1)
 
         crates = pyautogui.locateAllOnScreen(BTN_CRATE, grayscale=True, confidence=0.9)
         for pos in crates:
