@@ -1,3 +1,4 @@
+import os
 import pyautogui
 import time
 
@@ -12,6 +13,7 @@ games_played = 0
 def main_cycle():
     is_running = True
     while is_running:
+        os.system('cls')
         print(f'Games played: {games_played}')
         check_craft_game()
         check_claim()
