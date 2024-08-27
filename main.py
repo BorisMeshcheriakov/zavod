@@ -7,9 +7,12 @@ from images import BTN_CLAIM, BTN_START_GAME
 
 pyautogui.FAILSAFE = True
 
+games_played = 0
+
 def main_cycle():
     is_running = True
     while is_running:
+        print(f'Games played: {games_played}')
         check_craft_game()
         check_claim()
         time.sleep(MAIN_INTERVAL)
@@ -21,6 +24,8 @@ def check_craft_game():
         pyautogui.click(start_game)
         time.sleep(2)
         craft_game.craft_game()
+        global games_played
+        games_played += 1
     except pyautogui.ImageNotFoundException:
         print('Craft game is not ready yet!')
 
