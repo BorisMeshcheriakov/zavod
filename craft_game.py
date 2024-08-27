@@ -15,17 +15,15 @@ def craft_game():
         game_end_reason = check_game_ended()
         if game_end_reason is not None:
             break
-            
-
-        crates = None
 
         try: 
             # Wait, until game board is loading or "lvlup" animation is playing
-            crates = pyautogui.locateAllOnScreen(BTN_CRATE, grayscale=True, confidence=0.9)
+            pyautogui.locateOnScreen(BTN_CRATE, grayscale=True, confidence=0.9)
         except pyautogui.ImageNotFoundException:
             time.sleep(1)
             continue
 
+        crates = pyautogui.locateAllOnScreen(BTN_CRATE, grayscale=True, confidence=0.9)
         for pos in crates:
             game_end_reason = check_game_ended()
             if game_end_reason is not None:
