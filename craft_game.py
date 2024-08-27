@@ -1,7 +1,8 @@
 import time
 import pyautogui
 
-from images import BTN_CLOSE, BTN_CRATE, BTN_TO_WAREHOUSE, BTN_WAREHOUSE_SUBMIT, MSG_BATCH_DEFECTIVE
+from constants import CRAFT_GAME_ACTION
+from images import BTN_CLOSE, BTN_CRATE, BTN_SELL, BTN_TO_WAREHOUSE, BTN_WAREHOUSE_SUBMIT, MSG_BATCH_DEFECTIVE
 
 
 def craft_game():
@@ -61,14 +62,20 @@ def on_game_end(reason):
 
 def send_to_warehouse():
     try:
-        warehouse = pyautogui.locateCenterOnScreen(BTN_TO_WAREHOUSE, grayscale=False, confidence=0.9)
-        pyautogui.click(warehouse)
-        time.sleep(1)
-        warehouse_submit = pyautogui.locateCenterOnScreen(BTN_WAREHOUSE_SUBMIT, grayscale=False, confidence=0.9)
-        pyautogui.click(warehouse_submit)
-        time.sleep(1)
+        if CRAFT_GAME_ACTION == 'warehouse':
+            warehouse = pyautogui.locateCenterOnScreen(BTN_TO_WAREHOUSE, grayscale=False, confidence=0.9)
+            pyautogui.click(warehouse)
+            time.sleep(1)
+            warehouse_submit = pyautogui.locateCenterOnScreen(BTN_WAREHOUSE_SUBMIT, grayscale=False, confidence=0.9)
+            pyautogui.click(warehouse_submit)
+            
+
+        if CRAFT_GAME_ACTION == 'sell':
+            sell = pyautogui.locateCenterOnScreen(BTN_SELL, grayscale=False, confidence=0.9)
+            pyautogui.click(sell)
 
         # Start game again
+        time.sleep(1)
         craft_game()
     except pyautogui.ImageNotFoundException:
         print('Can`t sent to warehouse!')
