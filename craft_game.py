@@ -20,7 +20,7 @@ def craft_game():
             time.sleep(1)
             continue
 
-        pyautogui.scroll(-40)
+        pyautogui.scroll(-120)
         time.sleep(1)
 
         crates = pyautogui.locateAllOnScreen(BTN_CRATE, grayscale=True, confidence=0.9)
@@ -69,7 +69,7 @@ def send_to_warehouse():
             
 
         if CRAFT_GAME_ACTION == 'sell':
-            sell = pyautogui.locateCenterOnScreen(BTN_SELL, grayscale=False, confidence=0.9)
+            sell = pyautogui.locateCenterOnScreen(BTN_SELL, grayscale=True, confidence=0.8)
             pyautogui.click(sell)
 
         # Start game again
